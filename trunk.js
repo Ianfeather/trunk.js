@@ -8,12 +8,12 @@
   }
 
   var _endpoint = 'http://127.0.0.1:3000/js-error?type=error', 
-      _iframe = null;
+      _iframe = null,
 
   _buildClientInfo = function() {
     var user_agent = navigator.userAgent,
         location = window.location.href;
-    return "&ua=" + user_agent + "&url" + location;
+    return "&ua=" + user_agent + "&url" + location
   },
 
   _buildUrl = function (error, clientInfo, url) {
@@ -24,7 +24,6 @@
 
   _send = function(error) {
     url = _buildUrl(error, _buildClientInfo(), _endpoint);
-    
 
     if (_iframe === null) {
       _iframe = document.createElement("iframe");
@@ -36,7 +35,6 @@
     } else {
       _iframe.src = url;
     }
-
   };
 
   window.onerror = function(message, file, line) {
